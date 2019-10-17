@@ -17,13 +17,15 @@ PB_API_KEY = ''
 search_prefix = 'ENC'
 search_number = '3246'
 
+# Search Details
+search_term = '201908' #Fall 2019
 
-##### DO NOT EDIT BELOW THIS LINE IF YOU ARE A NORMIE #####
-###########################################################
+#Frequency of Check (in seconds)
+check_freq = 180
 
 # Parameter dictionary
 PARAMS = {
-    'P_SEMESTER': '201908',  # Fall 2019
+    'P_SEMESTER': search_term,
     'P_SESSION': '',
     'P_CAMPUS': '',
     'P_DIST': '',
@@ -57,7 +59,7 @@ while True:
         for row in rows:
             cols = row.find_all('td')
             cols = [ele.text.strip() for ele in cols]
-            data.append([ele for ele in cols if ele])  # Get rid of empty values
+            data.append([ele for ele in cols if ele])  # strip empty values
 
         seats_open = []
         CRNs = []
@@ -77,8 +79,8 @@ while True:
 
         check_count += 1
         print("Checked", check_count, "time(s)")
-        sleep(180)  # 3 minutes
+        sleep(check_freq)  # 3 minutes
     except Exception:
         print("Connection failed")
-        sleep(180)
+        sleep(check_freq)
         pass  # important not to swallow other exceptions
