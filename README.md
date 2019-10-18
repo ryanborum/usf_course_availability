@@ -4,5 +4,7 @@
 Uses BeautifulSoup to scrape a course search web form to look for seat openings and returns the CRN numbers via Pushbullet alert
 
 **Depends On:**
+
 BeautifulSoup4
+
 Pushbullet API (optional)
