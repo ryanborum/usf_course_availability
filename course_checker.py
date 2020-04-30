@@ -1,8 +1,9 @@
 # Fetch course openings by submitting the below form:
 # https://www.registrar.usf.edu/ssearch/staff/staff.php
 
+import sys
 import requests
-from pushbullet import Pushbullet
+#from pushbullet import Pushbullet
 from time import sleep
 from bs4 import BeautifulSoup
 
@@ -10,15 +11,18 @@ from bs4 import BeautifulSoup
 search_url = 'https://usfonline.admin.usf.edu/pls/prodss/wp_staff_search_db'
 
 # Pushbullet Setup (Optional - handles mobile notifications)
-SEND_PB_NOTIFICATION = True
+SEND_PB_NOTIFICATION = False
 PB_API_KEY = ''
 
-# Course Details
-search_prefix = 'ENC'
-search_number = '3246'
+# Course Details. Use EITHER 'search_prefix' and 'search_number' OR 'search_crn'
+search_prefix = 'ABC'
+search_number = '1234'
+search_crn = '21599'
 
 # Search Details
-search_term = '201908' #Fall 2019
+# YYYY followed by:
+# 01 = Spring | 05 = Summer | 08 = Fall
+search_term = '202001' #Spring 2020
 
 #Frequency of Check (in seconds)
 check_freq = 180
@@ -32,9 +36,9 @@ PARAMS = {
     'P_COL': '',
     'P_DEPT': '',
     'p_status': '',
-    'p_ssts_code': '',
+    'p_ssts_code': 'A', #Active Only
     'P_CRSE_LEVL': '',
-    'P_REF': '',
+    'P_REF': search_crn,
     'P_SUBJ': search_prefix,
     'P_NUM': search_number,
     'P_TITLE': '',
