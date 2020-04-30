@@ -1,6 +1,6 @@
 # usf_course_availability
 
-###Usage:###
+###Usage:
 ```
 py course_checker.py <school_term> <CRN or Course Subj/Num>
 ```
@@ -18,5 +18,4 @@ Uses BeautifulSoup to scrape a course search web form to look for seat openings 
 **Depends On:**
 
 BeautifulSoup4
-
 Pushbullet API (optional)
