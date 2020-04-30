@@ -1,6 +1,6 @@
 # usf_course_availability
 
-### Usage:
+**Usage:**
 ```
 py course_checker.py <school_term> <CRN or Course Subj/Num>
 ```
@@ -10,7 +10,7 @@ py course_checker.py Fall2020 ENC1101
 ```
 
 
-**Author - Ryan Borum**
+**Author - Ryan Borum**  
 Uses BeautifulSoup to scrape a course search web form to look for seat openings and returns the CRN numbers via Pushbullet alert
 
 **Depends On:**
