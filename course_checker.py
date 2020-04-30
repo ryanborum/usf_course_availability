@@ -22,7 +22,15 @@ search_crn = '21599'
 # Search Details
 # YYYY followed by:
 # 01 = Spring | 05 = Summer | 08 = Fall
-search_term = '202001' #Spring 2020
+search_term = sys.argv[1]
+year = search_term[-4:]
+term = search_term[:-4].lower()
+if term == "spring":
+    search_term = year + "01";
+elif term == "summer":
+    search_term = year + "05";
+elif term == "fall":
+    search_term = year + "08";
 
 #Frequency of Check (in seconds)
 check_freq = 180
@@ -38,9 +46,9 @@ PARAMS = {
     'p_status': '',
     'p_ssts_code': 'A', #Active Only
     'P_CRSE_LEVL': '',
-    'P_REF': search_crn,
-    'P_SUBJ': search_prefix,
-    'P_NUM': search_number,
+    'P_REF': '',
+    'P_SUBJ': '',
+    'P_NUM': '',
     'P_TITLE': '',
     'P_CR': '',
     'p_day_x': 'no_val',
@@ -49,6 +57,15 @@ PARAMS = {
     'P_INSTRUCTOR': '',
     'P_UGR': ''
 }
+
+class_or_crn = sys.argv[2]
+
+if len(class_or_crn) == 5:
+    PARAMS['P_REF'] = str(class_or_crn)
+elif len(sys.argv[2]) == 7:
+    PARAMS['P_SUBJ'] = str(class_or_crn[0:3])
+    PARAMS['P_NUM'] = str(class_or_crn[-4:])
+
 check_count = 0
 
 while True:
