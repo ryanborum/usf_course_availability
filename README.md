@@ -11,7 +11,8 @@ py course_checker.py Fall2020 ENC1101
 
 
 **Author - Ryan Borum**  
-Uses BeautifulSoup to scrape a course search web form to look for seat openings and returns the CRN numbers via Pushbullet alert
+Uses the BeautifulSoup python library to scrape a course search web form looking for seat openings and returning the CRN numbers via Pushbullet alert.
+*Note*: This will no longer be functional as the course management system has transferred to a different platform.
 
 **Depends On:**
 Python 3.7.2  
